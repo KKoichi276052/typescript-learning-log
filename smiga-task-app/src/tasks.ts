@@ -20,10 +20,21 @@ function addTask(task: Task): void {
 function renderTask(task: Task): void {
   const taskElement = document.createElement('li');
   taskElement.textContent = task.description;
+
+  const taskCheckBox = document.createElement('input');
+  taskCheckBox.type = 'checkbox';
+  taskCheckBox.checked = task.isCompleted;
+
+  taskCheckBox.addEventListener('change', () => {
+    task.isCompleted = !task.isCompleted;
+    updateStorage();
+  });
+
+  taskElement.appendChild(taskCheckBox);
   taskListElement?.appendChild(taskElement);
 }
 
-function updateStorage(params: type): void {
+function updateStorage(): void {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
@@ -45,7 +56,7 @@ taskForm?.addEventListener('submit', (event) => {
 
     renderTask(task);
 
-    updateStorage(task);
+    updateStorage();
 
     formInput.value = '';
     return;
