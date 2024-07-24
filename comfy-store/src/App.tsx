@@ -1,7 +1,7 @@
 import {
   HomeLayout,
   Landing,
-  Error,
+  // Error,
   Products,
   SingleProduct,
   Cart,
