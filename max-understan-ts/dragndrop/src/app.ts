@@ -7,6 +7,7 @@ interface Validatable {
   min?: number;
   max?: number;
 }
+
 function validate(validatableInput: Validatable) {
   let isValid = true;
   if (validatableInput.required) {
@@ -45,8 +46,6 @@ function autobind(
   };
   return adjDescriptor;
 }
-
-//
 
 class Projectinput {
   templateElement: HTMLTemplateElement;
@@ -88,10 +87,25 @@ class Projectinput {
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
 
+    const titleValidatable: Validatable = {
+      value: enteredTitle,
+      required: true,
+    };
+    const descriptionValidatable: Validatable = {
+      value: enteredDescription,
+      required: true,
+      minLength: 5,
+    };
+    const peopleValidatable: Validatable = {
+      value: enteredPeople,
+      required: true,
+      min: 1,
+    };
+
     if (
-      validate({ value: enteredTitle, required: true, minLength: 5 }) &&
-      validate({ value: enteredDescription, required: true, minLength: 5 }) &&
-      validate({ value: enteredPeople, required: true, minLength: 5 })
+      !validate(titleValidatable) ||
+      !validate(descriptionValidatable) ||
+      !validate(peopleValidatable)
     ) {
       alert('Invalid input, please try again!');
       return;
