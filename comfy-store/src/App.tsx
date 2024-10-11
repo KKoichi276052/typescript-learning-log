@@ -1,3 +1,4 @@
+import { useAppSelector } from './hooks';
 import {
   HomeLayout,
   Landing,
@@ -17,7 +18,6 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <HomeLayout />,
-
     children: [
       {
         index: true,
@@ -56,10 +56,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-
 function App() {
-return <RouterProvider router={router} />;
-
+  return <RouterProvider router={router} />;
 }
 export default App;

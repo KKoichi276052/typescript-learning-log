@@ -10,3 +10,5 @@ const themeSlice = createSlice({
 });
 
 export default themeSlice.reducer;
+
+export type Theme = 'dark' | 'light' | 'system';

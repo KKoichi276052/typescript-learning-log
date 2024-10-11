@@ -9,12 +9,13 @@ import { Button } from './ui/button';
 import { links } from '@/utils';
 import { NavLink } from 'react-router-dom';
 
-function LinksDropDown() {
+function LinksDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild className="lg:hidden">
         <Button variant="outline" size="icon">
           <AlignLeft />
+
           <span className="sr-only">Toggle links</span>
         </Button>
       </DropdownMenuTrigger>
@@ -41,4 +42,4 @@ function LinksDropDown() {
     </DropdownMenu>
   );
 }
-export default LinksDropDown;
+export default LinksDropdown;
