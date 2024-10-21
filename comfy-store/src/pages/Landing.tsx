@@ -1,4 +1,12 @@
+import { Hero, FeaturedProducts } from '@/components';
+import React from 'react';
+
 function Landing() {
-  return <h1 className="text-4xl"> Page</h1>;
+  return (
+    <>
+      <Hero />
+      <FeaturedProducts />
+    </>
+  );
 }
 export default Landing;
