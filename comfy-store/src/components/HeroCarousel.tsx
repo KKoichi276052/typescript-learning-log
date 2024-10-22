@@ -1,7 +1,7 @@
 import React from 'react';
 
-function HeroCarousel() {
+const HeroCarousel = () => {
   return <div>HeroCarousel</div>;
-}
+};
 
 export default HeroCarousel;
